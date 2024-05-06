@@ -1,0 +1,12 @@
+{
+    "name": "projeto-bot-discord",
+    "version": "1.0.0",
+    "description": "Discord bot to announce news changes on Github",
+    "main": "index.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Mansueto Paiva",
+    "license": "MIT"
+  }
+  
