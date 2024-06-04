@@ -1,26 +1,12 @@
 name: discord message
 on: [push]
 jobs:
-  pull-request:
-  build:
-    name: Build
+  git:
     runs-on: ubuntu-latest
     steps:
-    - uses: discord-actions/message@v2
-    - uses: actions/checkout@master
-    - name: send custom message with args
-    env:
-       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-    uses: Ilshidur/action-discord@master
-    with:
-       DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-       message: "Hello, from Github"
-       args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
-       job-name:
-        steps:
-          - name: Notify Discord
-            if: success()
-            uses: discord-actions/message@v2
-            with:
-              DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-              message: "Hello, from Github"
+      - name: Run Discord Webhook
+        uses: johnnyhuy/actions-discord-git-webhook@main 
+        with:
+         id: ${{ secrets.DISCORD_WEBHOOK }}
+         token: ${{ secrets.DISCORD_TOKEN }}
+         repo_name: bot-discord
