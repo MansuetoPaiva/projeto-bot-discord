@@ -1,0 +1,13 @@
+name: discord message
+on: [push]
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: send custom message with args
+     run: node ../../index.js
+      env:
+        - gfdgfdg: secrests.asdasad
