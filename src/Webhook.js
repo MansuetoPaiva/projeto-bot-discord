@@ -3,13 +3,13 @@ const core = require("@actions/core");
 const MAX_MESSAGE_LENGTH = 128;
 
 module.exports.send = (
-  webhookUrl,
+  DISCORD_WEBHOOK,
   payload,
   hideLinks,
   censorUsername,
   color
 ) => {
-  const repository = payload.repository.full_name;
+  const repository = payload.repository.discord_bot;
   const commits = payload.commits;
   const size = commits.length;
   const branch = payload.ref.split("/")[payload.ref.split("/").length - 1];
@@ -42,7 +42,7 @@ module.exports.send = (
     core.info("Preparing Discord webhook client...");
 
     try {
-      client = new discord.WebhookClient({ url: webhookUrl });
+      client = new discord.WebhookClient({ url: DISCORD_WEBHOOK });
     } catch (error) {
       reject(error);
     }
@@ -85,7 +85,7 @@ module.exports.getChangeLog = (payload, hideLinks, censorUsername) => {
       const firstRepository = repository.full_name[0];
       const lastRepository =
         repository.full_name[repository.full_name.length - 1];
-      commit.message = commit.message.replaceAll(repository.full_name, `${firstRepository}...${lastRepository}`);
+      commit.message = commit.message.replaceAll(repository.discord_bot, `${firstRepository}...${lastRepository}`);
     }
 
     let sha = commit.id.substring(0, 6);

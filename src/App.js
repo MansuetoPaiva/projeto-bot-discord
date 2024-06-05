@@ -15,10 +15,10 @@ async function main() {
   let payload = github.context.payload;
 
   if (customRepoName !== "") {
-    payload.repository.full_name = customRepoName;
+    payload.repository.discord_bot = customRepoName;
   }
 
-  if (!webhookUrl) {
+  if (!DISCORD_WEBHOOK) {
     core.warning("Missing webhook URL, using id and token fields to generate a webhook URL")
 
     if (!id || !token) {
@@ -26,11 +26,11 @@ async function main() {
       process.exit(1)
     }
 
-    webhookUrl = `https://discord.com/api/webhooks/${id}/${token}`
+    DISCORD_WEBHOOK = `https://discord.com/api/webhooks/${id}/${token}`
   }
 
   await webhooks.send(
-    webhookUrl,
+    DISCORD_WEBHOOK,
     payload,
     hideLinks,
     censorUsername,
