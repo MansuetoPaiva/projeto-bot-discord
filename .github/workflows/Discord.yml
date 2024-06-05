@@ -4,9 +4,9 @@ jobs:
   git:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
       - name: Run Discord Webhook
-        uses: johnnyhuy/actions-discord-git-webhook@main 
+
+        uses: mansuetopaiva/discord-bot@test 
         with:
-         id: ${{ secrets.DISCORD_WEBHOOK }}
-         token: ${{ secrets.DISCORD_TOKEN }}
-         repo_name: bot-discord
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
