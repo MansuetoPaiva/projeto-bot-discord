@@ -4,7 +4,7 @@ const process = require("process");
 const webhooks = require("./webhooks.js");
 
 async function main() {
-  let webhookUrl = core.getInput("webhook_url");
+  let DISCORD_WEBHOOK = core.getInput("webhook_url");
   const hideLinks = core.getInput("hide_links");
   const color = core.getInput("color");
   const id = core.getInput("id");
@@ -44,25 +44,3 @@ main()
     core.setFailed(error)
     process.exit(1)
   });
-
-
-
-
-
-
-
-
-// require('dotenv')
-// const Discord = require('discord.js');
-// const client = new Discord.Client();
-
-// client.once('ready', () => {
-//     console.log('Ready!');
-// });
-
-// client.on('message', message => {
-//     if (message.content === '!ping') {
-//         message.channel.send('Pong!');
-//     }
-// });
-// client.login(process.env.DISCORD_TOKEN);
