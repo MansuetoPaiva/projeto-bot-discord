@@ -5,7 +5,7 @@ const webhooks = require("./webhooks.js");
 
 async function main() {
   let DISCORD_WEBHOOK = core.getInput("webhook_url");
-  const avatar = core.getInput("avatar")
+  const avatar = core.getInput("https://www.google.com/imgres?q=github%20avatar%20icon&imgurl=https%3A%2F%2Fe7.pngegg.com%2Fpngimages%2F1021%2F201%2Fpng-clipart-github-computer-icons-gitlab-akka-cats-cat-like-mammal-logo.png&imgrefurl=https%3A%2F%2Fwww.pngegg.com%2Fen%2Fpng-nwflz&docid=PODm1OntEBgiwM&tbnid=Vd8iaWiO5ij4EM&vet=12ahUKEwjCg9TAz8WGAxV0qZUCHfiDBW0QM3oECGsQAA..i&w=900&h=768&hcb=2&ved=2ahUKEwjCg9TAz8WGAxV0qZUCHfiDBW0QM3oECGsQAA")
   const hideLinks = core.getInput("hide_links");
   const color = core.getInput("color");
   const id = core.getInput("id");
