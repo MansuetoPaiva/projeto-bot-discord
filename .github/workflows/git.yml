@@ -10,5 +10,5 @@ jobs:
         uses: johnnyhuy/actions-discord-git-webhook@main
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
-          color: 238E23
-          # 12B92E
+          color: 12B92E
+          

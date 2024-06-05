@@ -7,8 +7,7 @@ module.exports.send = (
   payload,
   hideLinks,
   censorUsername,
-  color,
-  avatar
+  color
 ) => {
   const repository = payload.repository.discord_bot;
   const commits = payload.commits;
@@ -29,7 +28,6 @@ module.exports.send = (
   const count = size == 1 ? "Commit" : " Commits";
 
   let embed = new discord.MessageEmbed()
-    .setAvatar(avatar)
     .setColor(color)
     .setTitle(`⚡ ${size} ${count}\n📁\`${repository}\`\n🌳 \`${branch}\``)
     .setDescription(this.getChangeLog(payload, hideLinks, censorUsername))
