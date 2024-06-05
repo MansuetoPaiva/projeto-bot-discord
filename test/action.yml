@@ -2,7 +2,7 @@ name: 'discord-bot'
 description: 'This GitHub Action sends  fancy and more meaningful discord messages for your commits. It includes Test results and coverage.'
 
 inputs:
-  webhook_url:
+  DISCORD_WEBHOOK:
     description: Discord webhook URL
   id:
     description: Discord Webhook ID (ignored if `webhook_url` is set)
