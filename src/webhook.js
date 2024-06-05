@@ -28,6 +28,7 @@ module.exports.send = (
   const count = size == 1 ? "Commit" : " Commits";
 
   let embed = new discord.MessageEmbed()
+    .setAvatar('https://www.google.com/imgres?q=avatar%20github%20icon&imgurl=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F2111%2F2111432.png&imgrefurl=https%3A%2F%2Fwww.flaticon.com%2Fbr%2Ficone-gratis%2Fgithub_2111432&docid=pfS5JnhQhSfgpM&tbnid=BJGnLseZanQPUM&vet=12ahUKEwjEiqCSq8WGAxVlrZUCHWJvDkIQM3oECE8QAA..i&w=512&h=512&hcb=2&ved=2ahUKEwjEiqCSq8WGAxVlrZUCHWJvDkIQM3oECE8QAA')
     .setColor(color)
     .setTitle(`⚡ ${size} ${count}\n📁\`${repository}\`\n🌳 \`${branch}\``)
     .setDescription(this.getChangeLog(payload, hideLinks, censorUsername))
