@@ -1,11 +1,7 @@
 const discord = require("discord.js");
 const core = require("@actions/core");
 const MAX_MESSAGE_LENGTH = 128;
-<<<<<<< HEAD
 const avatarUrl = "https://github.com/mansuetopaiva/MansuetoPaiva/assets/133207241/18856d09-294a-4b83-8755-4cd5c10e2565";
-=======
-const avatarUrl = "https://www.google.com/imgres?q=avatar%20github%20icon&imgurl=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F2111%2F2111432.png&imgrefurl=https%3A%2F%2Fwww.flaticon.com%2Fbr%2Ficone-gratis%2Fgithub_2111432&docid=pfS5JnhQhSfgpM&tbnid=BJGnLseZanQPUM&vet=12ahUKEwjK1KLGk8eGAxVHH7kGHc1LHWEQM3oECE4QAA..i&w=512&h=512&hcb=2&ved=2ahUKEwjK1KLGk8eGAxVHH7kGHc1LHWEQM3oECE4QAA"
->>>>>>> 991294e (test avatar 2)
 
 module.exports.send = (
   DISCORD_WEBHOOK,
@@ -13,7 +9,7 @@ module.exports.send = (
   hideLinks,
   censorUsername,
   color,
-  avatarUrl
+  avatar
 ) => {
   const repository = payload.repository.discord_bot;
   const commits = payload.commits;
@@ -36,7 +32,7 @@ module.exports.send = (
 
   let embed = new discord.MessageEmbed()
     .setColor(color)
-    .setAuthor('Github', avatarUrl)
+    .setAuthor('Github', avatar)
     .setTitle(`⚡ ${size} ${count}\n📁\`${repository}\`\n🌳 \`${branch}\``)
     .setDescription(this.getChangeLog(payload, hideLinks, censorUsername))
     .setTimestamp(Date.parse(latest.timestamp));
@@ -108,15 +104,3 @@ module.exports.getChangeLog = (payload, hideLinks, censorUsername) => {
 
   return changelog;
 };
-
-// const axios = require('axios');
-// const avatar_url = 'https://www.google.com/imgres?q=avatar%20github%20icon&imgurl=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F2111%2F2111432.png&imgrefurl=https%3A%2F%2Fwww.flaticon.com%2Fbr%2Ficone-gratis%2Fgithub_2111432&docid=pfS5JnhQhSfgpM&tbnid=BJGnLseZanQPUM&vet=12ahUKEwjK1KLGk8eGAxVHH7kGHc1LHWEQM3oECE4QAA..i&w=512&h=512&hcb=2&ved=2ahUKEwjK1KLGk8eGAxVHH7kGHc1LHWEQM3oECE4QAA';
-
-// async function avatar() {
-//   try {
-//     const resposta = await axios.patch(DISCORD_WEBHOOK, {
-//       avatar: avatar_url
-//   })
-// }};
-
-// avatar();
