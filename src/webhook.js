@@ -1,6 +1,7 @@
 const discord = require("discord.js");
 const core = require("@actions/core");
 const MAX_MESSAGE_LENGTH = 128;
+const avatar = "https://github.com/mansuetopaiva/MansuetoPaiva/assets/133207241/18856d09-294a-4b83-8755-4cd5c10e2565";
 
 module.exports.send = (
   DISCORD_WEBHOOK,
@@ -20,7 +21,8 @@ module.exports.send = (
     core.warning(`Aborting analysis, found no commits.`);
     return Promise.resolve();
   }
-
+  
+  core.info(`Avatar URL: ${avatar}`);
   core.debug(`Received payload: ${JSON.stringify(payload, null, 2)}`);
   core.debug(`Received ${commits.length}/${size} commits...`);
   core.info("Constructing Embed...");
