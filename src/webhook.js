@@ -1,7 +1,6 @@
 const discord = require("discord.js");
 const core = require("@actions/core");
 const MAX_MESSAGE_LENGTH = 128;
-const avatar = "https://github.com/mansuetopaiva/MansuetoPaiva/assets/133207241/18856d09-294a-4b83-8755-4cd5c10e2565";
 
 module.exports.send = (
   DISCORD_WEBHOOK,
@@ -16,6 +15,7 @@ module.exports.send = (
   const size = commits.length;
   const branch = payload.ref.split("/")[payload.ref.split("/").length - 1];
   const url = payload.compare;
+  const avatar = "https://github.com/mansuetopaiva/MansuetoPaiva/assets/133207241/18856d09-294a-4b83-8755-4cd5c10e2565";
 
   if (commits.length === 0) {
     core.warning(`Aborting analysis, found no commits.`);
