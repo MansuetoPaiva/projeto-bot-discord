@@ -17,7 +17,6 @@ module.exports.send = (
   const branch = payload.ref.split("/")[payload.ref.split("/").length - 1];
   const url = payload.compare;
   
-
   if (commits.length === 0) {
     core.warning(`Aborting analysis, found no commits.`);
     return Promise.resolve();
