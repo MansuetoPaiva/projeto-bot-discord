@@ -5,18 +5,9 @@ jobs:
     name: Git Commits
     runs-on: ubuntu-latest
     steps:
-<<<<<<< HEAD
       - uses: actions/checkout@v2
       - name: Run Discord Webhook
         uses: johnnyhuy/actions-discord-git-webhook@main
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
           color: 0000FF
-=======
-    - uses: actions/checkout@v2
-    - name: Run Discord Webhook
-      uses: johnnyhuy/actions-discord-git-webhook@main
-      with:
-        webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
-        color: 0000FF
->>>>>>> 533313a (.)
