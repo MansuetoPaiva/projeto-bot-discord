@@ -11,4 +11,3 @@ jobs:
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
           color: 0000FF
-          
