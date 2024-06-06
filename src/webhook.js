@@ -7,13 +7,15 @@ module.exports.send = (
   payload,
   hideLinks,
   censorUsername,
-  color
+  color,
+  avatar_url
 ) => {
   const repository = payload.repository.discord_bot;
   const commits = payload.commits;
   const size = commits.length;
   const branch = payload.ref.split("/")[payload.ref.split("/").length - 1];
   const url = payload.compare;
+  let avatar_url = "https://i.imgur.com/oBPXx0D.png"
 
   if (commits.length === 0) {
     core.warning(`Aborting analysis, found no commits.`);
