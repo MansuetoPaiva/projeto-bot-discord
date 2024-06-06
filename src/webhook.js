@@ -9,7 +9,7 @@ module.exports.send = (
   hideLinks,
   censorUsername,
   color,
-  avatar
+  avatarUrl
 ) => {
   const repository = payload.repository.discord_bot;
   const commits = payload.commits;
@@ -31,7 +31,7 @@ module.exports.send = (
 
   let embed = new discord.MessageEmbed()
     .setColor(color)
-    .setAuthor('Github', avatar)
+    .setAuthor('Github', avatarUrl)
     .setTitle(`⚡ ${size} ${count}\n📁\`${repository}\`\n🌳 \`${branch}\``)
     .setDescription(this.getChangeLog(payload, hideLinks, censorUsername))
     .setTimestamp(Date.parse(latest.timestamp));

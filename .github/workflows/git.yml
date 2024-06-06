@@ -5,25 +5,9 @@ jobs:
     name: Git Commits
     runs-on: ubuntu-latest
     steps:
-<<<<<<< HEAD
       - uses: actions/checkout@v2
       - name: Run Discord Webhook
         uses: johnnyhuy/actions-discord-git-webhook@main
         with:
           webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
           color: 0000FF
-=======
-    - uses: actions/checkout@v2
-    - name: Run Discord Webhook
-      uses: johnnyhuy/actions-discord-git-webhook@main
-      with:
-        webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
-        color: 0000FF
-<<<<<<< HEAD
-        hide_links: true
-        repo_name: 'discord-bot'
-        censor_username: false
-        avatar: https://github.com/mansuetopaiva/MansuetoPaiva/assets/133207241/18856d09-294a-4b83-8755-4cd5c10e2565
->>>>>>> 80aeef8 (.)
-=======
->>>>>>> bafeded (avatar test)
