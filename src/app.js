@@ -11,6 +11,7 @@ async function main() {
   const token = core.getInput("token");
   const customRepoName = core.getInput("repo_name");
   const censorUsername = core.getInput("censor_username");
+  const avatar = core.getInput("avatar");
 
   let payload = github.context.payload;
 
