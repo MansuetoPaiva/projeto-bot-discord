@@ -1,6 +1,7 @@
 const discord = require("discord.js");
 const core = require("@actions/core");
 const MAX_MESSAGE_LENGTH = 128;
+const avatarUrl = "https://github.com/mansuetopaiva/MansuetoPaiva/assets/133207241/18856d09-294a-4b83-8755-4cd5c10e2565";
 
 module.exports.send = (
   DISCORD_WEBHOOK,
@@ -8,31 +9,30 @@ module.exports.send = (
   hideLinks,
   censorUsername,
   color,
-  avatar
+  avatarUrl
 ) => {
   const repository = payload.repository.discord_bot;
   const commits = payload.commits;
   const size = commits.length;
   const branch = payload.ref.split("/")[payload.ref.split("/").length - 1];
   const url = payload.compare;
-  const avatar = "https://github.com/mansuetopaiva/MansuetoPaiva/assets/133207241/18856d09-294a-4b83-8755-4cd5c10e2565";
+  
 
   if (commits.length === 0) {
     core.warning(`Aborting analysis, found no commits.`);
     return Promise.resolve();
   }
   
-  core.info(`Avatar URL: ${avatar}`);
   core.debug(`Received payload: ${JSON.stringify(payload, null, 2)}`);
   core.debug(`Received ${commits.length}/${size} commits...`);
   core.info("Constructing Embed...");
-
+  core.info(`Avatar URL: ${avatarUrl}`);
   let latest = commits[0];
   const count = size == 1 ? "Commit" : " Commits";
 
   let embed = new discord.MessageEmbed()
     .setColor(color)
-    .setAuthor('Github', avatar)
+    .setAuthor('Github', avatarUrl)
     .setTitle(`⚡ ${size} ${count}\n📁\`${repository}\`\n🌳 \`${branch}\``)
     .setDescription(this.getChangeLog(payload, hideLinks, censorUsername))
     .setTimestamp(Date.parse(latest.timestamp));

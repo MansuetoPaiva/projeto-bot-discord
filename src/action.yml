@@ -8,3 +8,5 @@ inputs:
   args:
     description: 'The message to display in the Discord message.'
     required: true
+     avatar:
+    description: "An avatar for the message"
