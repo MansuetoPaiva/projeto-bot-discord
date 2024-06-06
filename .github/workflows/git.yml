@@ -5,15 +5,13 @@ jobs:
     name: Git Commits
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Run Discord Webhook
-        uses: johnnyhuy/actions-discord-git-webhook@main
-        with:
-          webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
-          color: 0000FF
-          hide_links: true
-          id: ${{ secrets.DISCORD_ID }}
-          token: ${{ secrets.DISCORD_TOKEN }}
-          repo_name: 'discord-bot'
-          censor_username: false
-          avatar_url: 'https://www.google.com/imgres?q=avatar%20github%20icon&imgurl=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F2111%2F2111432.png&imgrefurl=https%3A%2F%2Fwww.flaticon.com%2Fbr%2Ficone-gratis%2Fgithub_2111432&docid=pfS5JnhQhSfgpM&tbnid=BJGnLseZanQPUM&vet=12ahUKEwjK1KLGk8eGAxVHH7kGHc1LHWEQM3oECE4QAA..i&w=512&h=512&hcb=2&ved=2ahUKEwjK1KLGk8eGAxVHH7kGHc1LHWEQM3oECE4QAA'
+    - uses: actions/checkout@v2
+    - name: Run Discord Webhook
+      uses: johnnyhuy/actions-discord-git-webhook@main
+      with:
+        webhook_url: ${{ secrets.DISCORD_WEBHOOK }}
+        color: 0000FF
+        hide_links: true
+        repo_name: 'discord-bot'
+        censor_username: false
+      avatar: 'https://www.google.com/imgres?q=avatar%20github%20icon&imgurl=https%3A%2F%2Fcdn-icons-png.flaticon.com%2F512%2F2111%2F2111432.png&imgrefurl=https%3A%2F%2Fwww.flaticon.com%2Fbr%2Ficone-gratis%2Fgithub_2111432&docid=pfS5JnhQhSfgpM&tbnid=BJGnLseZanQPUM&vet=12ahUKEwjK1KLGk8eGAxVHH7kGHc1LHWEQM3oECE4QAA..i&w=512&h=512&hcb=2&ved=2ahUKEwjK1KLGk8eGAxVHH7kGHc1LHWEQM3oECE4QAA'
