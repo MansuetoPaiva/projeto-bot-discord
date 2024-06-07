@@ -11,7 +11,6 @@ async function main() {
   const token = core.getInput("token");
   const customRepoName = core.getInput("repo_name");
   const censorUsername = core.getInput("censor_username");
-  const avatarUrl = core.getInput("avatarUrl");
 
   let payload = github.context.payload;
 
@@ -35,8 +34,7 @@ async function main() {
     payload,
     hideLinks,
     censorUsername,
-    color,
-    avatarUrl
+    color
   );
 }
 

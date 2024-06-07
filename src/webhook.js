@@ -1,15 +1,13 @@
 const discord = require("discord.js");
 const core = require("@actions/core");
 const MAX_MESSAGE_LENGTH = 128;
-const avatarUrl = "https://github.com/mansuetopaiva/MansuetoPaiva/assets/133207241/18856d09-294a-4b83-8755-4cd5c10e2565";
 
 module.exports.send = (
   DISCORD_WEBHOOK,
   payload,
   hideLinks,
   censorUsername,
-  color,
-  avatarUrl
+  color
 ) => {
   const repository = payload.repository.discord_bot;
   const commits = payload.commits;
@@ -31,7 +29,6 @@ module.exports.send = (
 
   let embed = new discord.MessageEmbed()
     .setColor(color)
-    .setAuthor('Github', avatarUrl)
     .setTitle(`⚡ ${size} ${count}\n📁\`${repository}\`\n🌳 \`${branch}\``)
     .setDescription(this.getChangeLog(payload, hideLinks, censorUsername))
     .setTimestamp(Date.parse(latest.timestamp));
