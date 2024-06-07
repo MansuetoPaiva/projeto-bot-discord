@@ -13,6 +13,7 @@ async function main() {
   const censorUsername = core.getInput("censor_username");
 
   let payload = github.context.payload;
+  
 
   if (customRepoName !== "") {
     payload.repository.discord_bot = customRepoName;
